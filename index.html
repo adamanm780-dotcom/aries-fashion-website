@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aries Fashion · Boutique · Berger Straße 63, Frankfurt</title>
+<meta name="description" content="Aries Fashion GmbH – inhabergeführte Damenmode-Boutique auf der Berger Straße 63 in Frankfurt am Main. Kleider, Strick, Taschen, Schmuck & Beratung von Herzen. Mo–Sa 11–19 Uhr.">
+<meta property="og:title" content="Aries Fashion · Boutique auf der Berger Straße, Frankfurt">
+<meta property="og:description" content="…für alle Tage und doch immer etwas Besonderes! Damenmode & Accessoires im Nordend. ★ 5,0 bei Google.">
+<meta property="og:image" content="https://adamanm780-dotcom.github.io/aries-fashion-website/assets/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preload" as="image" href="frames/f_001.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,560;1,9..144,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1626;
+  --ink-soft:#544b60;
+  --paper:#f2f6fc;
+  --paper-rose:#fdf0f5;
+  --sky:#b8d4f0;
+  --sky-deep:#7ba3d4;
+  --rose:#e8aec4;
+  --rose-deep:#c4788f;
+  --rose-tint:#f8e4ed;
+  --line:rgba(26,22,38,.13);
+  --line-strong:rgba(26,22,38,.4);
+  --grad:linear-gradient(100deg,var(--sky-deep),var(--rose-deep));
+  --disp:'Fraunces',Georgia,serif;
+  --body:'Figtree',system-ui,sans-serif;
+  --rad:16px;
+  --gutter:clamp(20px,5vw,72px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{background:var(--paper);color:var(--ink)}
+body{font-family:var(--body);font-weight:400;line-height:1.6;font-size:clamp(15.5px,1.05vw,17.5px);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--rose);color:var(--ink)}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--rose-deep);outline-offset:3px;border-radius:4px}
+h1,h2,.disp{font-family:var(--disp);font-weight:340;line-height:1.06;letter-spacing:-.01em}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.kicker{font-family:var(--body);font-weight:600;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--rose-deep);display:flex;align-items:center;gap:14px}
+.kicker::before{content:"";width:26px;height:2px;border-radius:2px;background:var(--grad)}
+.it{font-style:italic;font-weight:400}
+[data-rev]{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.6,.2,1),transform .9s cubic-bezier(.2,.6,.2,1);transition-delay:var(--d,0s)}
+[data-rev="left"]{transform:translateX(-44px)}
+[data-rev="right"]{transform:translateX(44px)}
+[data-rev].in{opacity:1;transform:none}
+nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px var(--gutter);transition:background .45s,box-shadow .45s,padding .45s}
+nav.solid{background:rgba(242,246,252,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:11px var(--gutter)}
+nav .brand img{height:30px;width:auto;display:block}
+nav .links{display:flex;gap:clamp(14px,2.6vw,36px);list-style:none}
+nav .links a{text-decoration:none;font-weight:500;font-size:13.5px;letter-spacing:.06em;position:relative;padding:4px 0}
+nav .links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;border-radius:2px;width:0;background:var(--grad);transition:width .3s}
+nav .links a:hover::after{width:100%}
+.pill{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--ink);border-radius:999px;padding:9px 20px;text-decoration:none;font-weight:600;font-size:13px;letter-spacing:.05em;background:transparent;transition:background .3s,color .3s,border-color .3s,box-shadow .3s;white-space:nowrap}
+.pill:hover{background:var(--ink);color:var(--paper);box-shadow:0 8px 24px -10px rgba(123,163,212,.6)}
+@media(max-width:860px){nav .links{display:none}}
+#hero{height:340vh;position:relative}
+.hero-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#film{position:absolute;inset:0;width:100%;height:100%;display:block}
+.veil{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(242,246,252,.55) 0%,rgba(253,240,246,.14) 26%,rgba(242,246,252,.08) 55%,rgba(253,240,246,.85) 88%,var(--paper) 100%);pointer-events:none}
+.grain{position:absolute;inset:-50%;width:200%;height:200%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");opacity:.05;pointer-events:none;animation:grain 7s steps(6) infinite}
+@keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-6%,4%)}40%{transform:translate(4%,-7%)}60%{transform:translate(-3%,-4%)}80%{transform:translate(6%,5%)}}
+.hero-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 var(--gutter);gap:clamp(10px,2vh,22px)}
+.hero-eyebrow{font-weight:600;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink);opacity:0;animation:rise 1.1s .25s cubic-bezier(.2,.6,.2,1) forwards}
+.hero-logo{width:min(70vw,560px);height:auto;filter:drop-shadow(0 12px 34px rgba(26,22,38,.28));opacity:0;animation:rise 1.3s .45s cubic-bezier(.2,.6,.2,1) forwards}
+.hero-claim{font-size:clamp(21px,3.1vw,37px);max-width:21em;color:var(--ink);opacity:0;animation:rise 1.1s .7s cubic-bezier(.2,.6,.2,1) forwards}
+.hero-sub{font-size:clamp(13.5px,1.1vw,16px);color:var(--ink-soft);font-weight:500;letter-spacing:.04em;opacity:0;animation:rise 1.1s .85s cubic-bezier(.2,.6,.2,1) forwards}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.hero-corner{position:absolute;bottom:26px;font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);opacity:0;animation:rise 1s 1.2s forwards}
+.hero-corner.l{left:var(--gutter)}
+.hero-corner.r{right:var(--gutter);display:flex;align-items:center;gap:8px}
+.hero-corner .star{color:var(--rose-deep)}
+.scroll-hint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:rise 1s 1.35s forwards}
+.scroll-hint span{font-size:10.5px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft)}
+.scroll-hint .line{width:1px;height:42px;background:var(--line-strong);overflow:hidden;position:relative}
+.scroll-hint .line::after{content:"";position:absolute;left:0;top:-100%;width:100%;height:100%;background:var(--grad);animation:drip 1.8s ease-in-out infinite}
+@keyframes drip{to{top:100%}}
+@media(max-width:640px){.hero-corner{display:none}}
+.marquee{background:var(--ink);color:var(--paper);overflow:hidden;padding:15px 0;position:relative}
+.marquee .track{display:flex;width:max-content;animation:mq 30s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.marquee .set{display:flex;align-items:center;flex-shrink:0}
+.marquee .set span{font-family:var(--disp);font-weight:340;font-size:17px;letter-spacing:.02em;padding:0 26px;white-space:nowrap}
+.marquee .set i{width:6px;height:6px;border-radius:50%;background:var(--rose);flex-shrink:0}
+.marquee .set i:nth-child(4n){background:var(--sky)}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:clamp(84px,11vw,150px) var(--gutter);position:relative;overflow:hidden}
+.shell{max-width:1240px;margin:0 auto;position:relative;z-index:2}
+.bloom{position:absolute;pointer-events:none;z-index:1}
+.bloom.b1{bottom:calc(-1*clamp(60px,8vw,115px));left:calc(-1*clamp(70px,10vw,150px));width:clamp(210px,27vw,390px);height:clamp(210px,27vw,390px);transform:rotate(-8deg) scaleX(-1);opacity:.95}
+@media(max-width:900px){.bloom.b1{display:none}}
+.bloom.b2{bottom:calc(-1*clamp(40px,6vw,90px));left:calc(-1*clamp(60px,9vw,140px));width:clamp(240px,32vw,440px);height:clamp(240px,32vw,440px);transform:rotate(-7deg);opacity:.9}
+.flower-static{position:absolute;pointer-events:none;z-index:1;filter:drop-shadow(0 14px 34px rgba(196,120,143,.3));transform:rotate(var(--r,0deg)) scaleX(var(--sx,1));animation:fsdrift var(--dur,14s) ease-in-out infinite;animation-delay:var(--dly,0s);will-change:transform}
+@keyframes fsdrift{0%,100%{transform:translate3d(0,0,0) rotate(var(--r,0deg)) scaleX(var(--sx,1))}50%{transform:translate3d(0,-15px,0) rotate(calc(var(--r,0deg) + 1.6deg)) scaleX(var(--sx,1))}}
+.fs-boutique{top:calc(-1*clamp(28px,4.5vw,80px));right:calc(-1*clamp(40px,6vw,115px));width:clamp(200px,26vw,375px);--r:170deg;opacity:.72;--dur:16s}
+.fs-sortiment{bottom:calc(-1*clamp(48px,7vw,120px));right:calc(-1*clamp(48px,7vw,130px));width:clamp(210px,27vw,385px);--r:13deg;opacity:.5;filter:drop-shadow(0 16px 42px rgba(123,163,212,.5));--dur:19s;--dly:-4s}
+.fs-stimmen{top:clamp(38px,6vw,92px);right:calc(-1*clamp(38px,5vw,100px));width:clamp(180px,22vw,315px);--r:-9deg;opacity:.72;--dur:15s;--dly:-7s}
+.fs-tv{bottom:calc(-1*clamp(58px,8vw,130px));left:calc(-1*clamp(48px,7vw,120px));width:clamp(200px,25vw,355px);--r:-15deg;opacity:.44;filter:drop-shadow(0 16px 42px rgba(232,174,196,.4));--dur:18s;--dly:-2s}
+.fs-besuch{top:calc(-1*clamp(28px,4vw,70px));right:calc(-1*clamp(28px,4vw,90px));width:clamp(190px,24vw,335px);--r:22deg;--sx:-1;opacity:.8;--dur:17s;--dly:-9s}
+.fs-footer{bottom:calc(-1*clamp(38px,6vw,100px));left:calc(-1*clamp(38px,6vw,110px));width:clamp(170px,21vw,295px);--r:-12deg;opacity:.5;--dur:20s;--dly:-5s}
+@media(max-width:900px){.fs-boutique,.fs-sortiment,.fs-tv,.fs-footer{display:none}.fs-stimmen,.fs-besuch{width:clamp(115px,29vw,175px);opacity:.5}}
+.sec-head{display:flex;flex-direction:column;gap:20px;margin-bottom:clamp(40px,5vw,70px)}
+.sec-head h2{font-size:clamp(32px,4.4vw,58px)}
+#boutique{background:linear-gradient(180deg,#f2f6fc 0%,#fdf0f5 100%)}
+#boutique .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:start}
+#boutique .copy{position:sticky;top:110px;display:flex;flex-direction:column;gap:26px}
+#boutique .copy h2{font-size:clamp(32px,4vw,54px)}
+#boutique .lede{font-family:var(--disp);font-style:italic;font-size:clamp(18px,1.6vw,23px);line-height:1.45;color:var(--ink-soft)}
+#boutique p{max-width:34em;color:var(--ink-soft)}
+.facts{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);margin-top:8px}
+.fact{flex:1 1 33%;min-width:130px;padding:18px 18px 0 0;border-right:1px solid var(--line)}
+.fact:last-child{border-right:0}
+.fact b{display:block;font-family:var(--disp);font-weight:560;font-size:clamp(19px,1.8vw,25px);line-height:1.15}
+.fact small{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.collage{position:relative;padding:0 0 90px;isolation:isolate}
+.collage .ph{border-radius:var(--rad);overflow:hidden;box-shadow:0 24px 60px -22px rgba(26,22,38,.35)}
+.collage .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.6,.2,1)}
+.collage .ph:hover img{transform:scale(1.035)}
+.collage .p1{width:78%;aspect-ratio:4/4.6}
+.collage .p2{position:absolute;right:0;bottom:0;width:52%;aspect-ratio:3/3.8;border:6px solid var(--paper)}
+.collage::before{content:"";position:absolute;top:-26px;left:-26px;width:46%;aspect-ratio:1;background:linear-gradient(135deg,var(--sky) 0%,var(--rose-tint) 100%);border-radius:var(--rad);z-index:-1;opacity:.7}
+.collage figcaption{position:absolute;left:-34px;bottom:100px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);writing-mode:vertical-rl;transform:rotate(180deg)}
+@media(max-width:900px){#boutique .grid{grid-template-columns:1fr}#boutique .copy{position:static}.collage figcaption{position:static;writing-mode:horizontal-tb;transform:none;margin-top:14px}}
+#sortiment{background:var(--ink);color:var(--paper)}
+#sortiment .kicker{color:var(--rose)}
+#sortiment .sec-head{flex-direction:row;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+#sortiment .sec-head p{max-width:26em;color:rgba(242,246,252,.66);font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,30px)}
+.card{text-decoration:none;display:flex;flex-direction:column;gap:16px}
+.card .im{border-radius:var(--rad);overflow:hidden;aspect-ratio:3/3.9;position:relative}
+.card .im img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.6,.2,1),filter 1.1s}
+.card:hover .im img{transform:scale(1.05)}
+.card .im::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(26,22,38,.34),transparent 45%);opacity:.85;transition:opacity .6s}
+.card:hover .im::after{opacity:.45}
+.card .row{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid rgba(242,246,252,.22);padding-bottom:14px}
+.card .row b{font-family:var(--disp);font-weight:340;font-size:clamp(21px,2vw,28px)}
+.card .row span{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);transition:transform .4s;display:inline-block}
+.card:hover .row span{transform:translateX(6px)}
+.sort-note{margin-top:clamp(34px,4vw,52px);display:flex;align-items:center;gap:18px;color:rgba(242,246,252,.6);font-size:14px}
+.sort-note::before{content:"";flex:0 0 40px;height:2px;border-radius:2px;background:var(--grad)}
+@media(max-width:820px){.cards{grid-template-columns:1fr;max-width:440px;margin:0 auto}.card .im{aspect-ratio:3/3.2}}
+.silk{position:relative;height:clamp(220px,32vw,380px);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.silk img{position:absolute;inset:0;width:100%;height:110%;object-fit:cover;will-change:transform}
+.silk::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(184,212,240,.35),rgba(232,174,196,.3))}
+.silk h3{position:relative;z-index:2;font-family:var(--disp);font-weight:340;font-style:italic;font-size:clamp(24px,4vw,48px);color:var(--ink);text-align:center;padding:0 var(--gutter);max-width:20em}
+#stimmen{background:linear-gradient(180deg,#fdf0f5 0%,#f2f6fc 100%)}
+#stimmen .layout{display:grid;grid-template-columns:.9fr 1.4fr;gap:clamp(44px,6vw,100px);align-items:start}
+.score{position:sticky;top:120px;display:flex;flex-direction:column;gap:18px}
+.score .big{font-family:var(--disp);font-weight:340;font-size:clamp(96px,11vw,170px);line-height:.9;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stars{display:flex;gap:5px;color:var(--rose-deep)}
+.stars svg{width:22px;height:22px}
+.score p{color:var(--ink-soft);font-size:15px;max-width:20em}
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,26px)}
+.quote{background:rgba(255,255,255,.82);backdrop-filter:blur(6px);border:1px solid rgba(123,163,212,.25);border-radius:var(--rad);padding:clamp(22px,2.4vw,34px);display:flex;flex-direction:column;gap:14px;box-shadow:0 18px 44px -30px rgba(123,163,212,.5)}
+.quote:nth-child(2n){transform:translateY(30px)}
+.quote:nth-child(2n)[data-rev].in{transform:translateY(30px)}
+.quote .stars svg{width:15px;height:15px}
+.quote blockquote{font-family:var(--disp);font-weight:340;font-size:clamp(16.5px,1.35vw,19.5px);line-height:1.45}
+.quote cite{font-style:normal;font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center;gap:8px}
+.quote cite::before{content:"";width:18px;height:2px;border-radius:2px;background:var(--grad)}
+@media(max-width:900px){#stimmen .layout{grid-template-columns:1fr}.score{position:static}.quotes{grid-template-columns:1fr}.quote:nth-child(2n){transform:none}.quote:nth-child(2n)[data-rev].in{transform:none}}
+#tv{background:var(--ink);color:var(--paper)}
+#tv .kicker{color:var(--rose)}
+#tv .layout{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,5vw,80px);align-items:center}
+#tv .copy{display:flex;flex-direction:column;gap:24px}
+#tv h2{font-size:clamp(30px,4vw,52px)}
+#tv p{color:rgba(242,246,252,.72);max-width:30em}
+.pill.light{border-color:rgba(242,246,252,.5);color:var(--paper)}
+.pill.light:hover{background:var(--rose);border-color:var(--rose);color:var(--ink)}
+.tv-screen{position:relative;display:block;border-radius:var(--rad);overflow:hidden;aspect-ratio:16/10;box-shadow:0 30px 70px -28px rgba(0,0,0,.7);border:1px solid rgba(242,246,252,.14)}
+.tv-screen img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35) contrast(1.05);transition:transform 1.1s cubic-bezier(.2,.6,.2,1),filter .8s}
+.tv-screen:hover img{transform:scale(1.04);filter:none}
+.tv-screen::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(26,22,38,.55),rgba(26,22,38,.08) 55%)}
+.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--rose));display:flex;align-items:center;justify-content:center;z-index:2;transition:transform .35s}
+.play::before{content:"";position:absolute;inset:-12px;border-radius:50%;border:1px solid rgba(232,174,196,.55);animation:pulse 2.2s ease-out infinite}
+.play svg{width:26px;height:26px;color:var(--ink);margin-left:4px}
+.tv-screen:hover .play{transform:translate(-50%,-50%) scale(1.08)}
+@keyframes pulse{0%{transform:scale(.8);opacity:1}100%{transform:scale(1.45);opacity:0}}
+.tv-tag{position:absolute;left:18px;bottom:16px;z-index:2;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--paper);display:flex;align-items:center;gap:10px}
+.tv-tag::before{content:"";width:8px;height:8px;border-radius:50%;background:#ff4d5a;box-shadow:0 0 10px #ff4d5a;animation:blink 1.6s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+@media(max-width:900px){#tv .layout{grid-template-columns:1fr}}
+#besuch{background:linear-gradient(160deg,#eef4fb 0%,#fbeff5 100%)}
+#besuch .layout{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(40px,5vw,80px);align-items:stretch}
+#besuch .info{display:flex;flex-direction:column;gap:28px}
+#besuch h2{font-size:clamp(32px,4vw,54px)}
+.hours{border-top:1px solid var(--line)}
+.hours div{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.hours div span:first-child{font-weight:600;letter-spacing:.04em}
+.hours .closed span:last-child{color:var(--rose-deep);font-weight:600}
+.contact-rows{display:flex;flex-direction:column;gap:2px}
+.contact-rows a{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);text-decoration:none;font-weight:500;font-size:15px;transition:color .3s,padding-left .3s}
+.contact-rows a:hover{color:var(--rose-deep);padding-left:6px}
+.contact-rows svg{width:17px;height:17px;flex-shrink:0;color:var(--rose-deep)}
+.mapwrap{border-radius:var(--rad);overflow:hidden;border:1px solid rgba(123,163,212,.3);min-height:420px;position:relative;box-shadow:0 24px 60px -26px rgba(123,163,212,.55)}
+.mapwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.04);transition:filter .7s}
+.mapwrap:hover iframe{filter:none}
+@media(max-width:900px){#besuch .layout{grid-template-columns:1fr}.mapwrap{min-height:340px}}
+footer{background:var(--ink);color:var(--paper);padding:clamp(70px,9vw,120px) var(--gutter) 34px;text-align:center;position:relative;overflow:hidden}
+footer .foot-flower{position:absolute;top:-30px;right:calc(-1*clamp(30px,5vw,70px));width:clamp(140px,18vw,240px);transform:rotate(18deg);opacity:.85;pointer-events:none}
+#logo3d{width:min(78vw,560px);height:calc(min(78vw,560px)*.5);margin:0 auto clamp(28px,3.5vw,44px);position:relative;z-index:2}
+.socials{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:clamp(40px,5vw,64px);position:relative;z-index:2}
+.sbtn{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(242,246,252,.32);border-radius:999px;padding:12px 24px;text-decoration:none;font-weight:600;font-size:13.5px;letter-spacing:.05em;transition:background .35s,color .35s,border-color .35s,transform .35s}
+.sbtn svg{width:16px;height:16px}
+.sbtn:hover{background:var(--rose);border-color:var(--rose);color:var(--ink);transform:translateY(-2px)}
+footer .addr{font-family:var(--disp);font-style:italic;font-size:clamp(16px,1.5vw,20px);color:rgba(242,246,252,.8);margin-bottom:46px}
+footer .base{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;border-top:1px solid rgba(242,246,252,.16);padding-top:24px;font-size:12px;color:rgba(242,246,252,.5);letter-spacing:.04em}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important;scroll-behavior:auto}
+  [data-rev]{opacity:1;transform:none}
+  #hero{height:130vh}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav" aria-label="Hauptnavigation">
+  <a class="brand" href="#hero" aria-label="Aries Fashion – nach oben"><img src="assets/logo-ink.svg" alt="Aries Fashion"></a>
+  <ul class="links">
+    <li><a href="#boutique">Die Boutique</a></li>
+    <li><a href="#sortiment">Sortiment</a></li>
+    <li><a href="#stimmen">Stimmen</a></li>
+    <li><a href="#besuch">Besuch</a></li>
+  </ul>
+  <a class="pill" href="https://www.google.com/maps/dir/?api=1&destination=Aries+Fashion+GmbH%2C+Berger+Str.+63%2C+60316+Frankfurt+am+Main" target="_blank" rel="noopener">Route planen</a>
+</nav>
+
+<header id="hero">
+  <div class="hero-stick">
+    <canvas id="film" aria-hidden="true"></canvas>
+    <div class="veil"></div>
+    <div class="grain"></div>
+    <div class="hero-center">
+      <p class="hero-eyebrow">Inhabergeführte Boutique · Berger Straße 63 · Frankfurt</p>
+      <img class="hero-logo" src="assets/logo-ink.svg" alt="Aries Fashion">
+      <h1 class="hero-claim it">Für alle Tage — und doch immer etwas&nbsp;Besonderes.</h1>
+      <p class="hero-sub">Damenmode · Accessoires · Beratung von Herzen — im Nordend</p>
+    </div>
+    <p class="hero-corner l">Frankfurt am Main — Nordend</p>
+    <p class="hero-corner r"><span class="star">★</span> 5,0 bei Google</p>
+    <div class="scroll-hint" aria-hidden="true"><span>Scrollen</span><div class="line"></div></div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <div class="set" id="mqset"></div>
+  </div>
+</div>
+
+<section id="boutique">
+  <img class="flower-static fs-boutique" src="assets/flower_sprig.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+  <div class="shell grid">
+    <div class="copy">
+      <p class="kicker" data-rev>Die Boutique</p>
+      <h2 data-rev style="--d:.08s">Ein kleiner Laden mit großem&nbsp;<span class="it grad">Gespür.</span></h2>
+      <p class="lede" data-rev style="--d:.16s">Ob abends unterwegs mit den Freundinnen oder leger zum Brunchen — hier findet sich das komplette Outfit für jede Gelegenheit.</p>
+      <p data-rev style="--d:.22s">Seit über zwanzig Jahren führt Aries Fashion auf der Berger Straße moderne Mode und Accessoires zu fairen Preisen — trendig Ausgefallenes ebenso wie klassische, bürotaugliche Teile. Zweimal pro Woche wird neue Ware einsortiert, und wer mag, bekommt ehrliche Beratung dazu: von der Jeans über das Kleid bis zur passenden Handtasche.</p>
+      <div class="facts" data-rev style="--d:.28s">
+        <div class="fact"><b>20+</b><small>Jahre auf der Berger</small></div>
+        <div class="fact"><b>2×</b><small>pro Woche neue Ware</small></div>
+        <div class="fact"><b>U4</b><small>Merianplatz, 2 Min.</small></div>
+      </div>
+    </div>
+    <figure class="collage">
+      <div class="ph p1" data-rev="right"><img src="assets/real_rack.jpg" alt="Strick und Blusen auf der Stange bei Aries Fashion" loading="lazy"></div>
+      <div class="ph p2" data-rev="right" style="--d:.15s"><img src="assets/real_outfit.jpg" alt="Zweiteiliges Outfit aus der Boutique vor einer Altbautür" loading="lazy"></div>
+      <figcaption>Aus der Boutique — Berger Str. 63</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="sortiment">
+  <img class="flower-static fs-sortiment" src="assets/flower_hydrangea.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+  <div class="shell">
+    <div class="sec-head">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <p class="kicker" data-rev>Sortiment</p>
+        <h2 data-rev style="--d:.08s">Was Sie bei uns&nbsp;finden</h2>
+      </div>
+      <p data-rev style="--d:.15s">Sorgfältig ausgewählt statt beliebig: Jede Woche neue Teile, die zueinander — und zu Ihnen — passen.</p>
+    </div>
+    <div class="cards">
+      <a class="card" href="#besuch" data-rev>
+        <div class="im"><img src="assets/kleid.jpg" alt="Rosé Musselin-Blusenkleid mit Bindegürtel" loading="lazy"></div>
+        <div class="row"><b>Kleider</b><span>Ansehen →</span></div>
+      </a>
+      <a class="card" href="#besuch" data-rev style="--d:.12s">
+        <div class="im"><img src="assets/strick.jpg" alt="Oversize-Strickpullover in Rosa mit geflochtener Tasche" loading="lazy"></div>
+        <div class="row"><b>Strick</b><span>Ansehen →</span></div>
+      </a>
+      <a class="card" href="#besuch" data-rev style="--d:.24s">
+        <div class="im"><img src="assets/accessoires.jpg" alt="Handtasche, Schmuck und Seidentuch als Stillleben" loading="lazy"></div>
+        <div class="row"><b>Taschen &amp; Schmuck</b><span>Ansehen →</span></div>
+      </a>
+    </div>
+    <p class="sort-note" data-rev>Außerdem: Jeans, Blusen, Schuhe und Accessoires für jede Saison — am schönsten live im Laden.</p>
+  </div>
+</section>
+
+<div class="silk">
+  <img id="silkimg" src="assets/silk.jpg" alt="" aria-hidden="true">
+  <h3 data-rev>„Mein neuer Lieblingsladen in&nbsp;Frankfurt.“</h3>
+</div>
+
+<section id="stimmen">
+  <canvas class="bloom b2" data-flower="rose" width="480" height="480" aria-hidden="true"></canvas>
+  <img class="flower-static fs-stimmen" src="assets/flower_petals.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+  <div class="shell layout">
+    <div class="score">
+      <p class="kicker" data-rev>Stimmen</p>
+      <div class="big" data-rev style="--d:.08s">5,0</div>
+      <div class="stars" data-rev style="--d:.14s" aria-label="5 von 5 Sternen"></div>
+      <p data-rev style="--d:.2s">Durchschnitt aus 36 Rezensionen auf Google — jede einzelne mit fünf Sternen.</p>
+      <div data-rev style="--d:.26s"><a class="pill" href="https://search.google.com/local/reviews?placeid=ChIJ4ZeMAr4OvUcRdm7CCslkpPw" target="_blank" rel="noopener">Alle Rezensionen auf Google</a></div>
+    </div>
+    <div class="quotes">
+      <article class="quote" data-rev>
+        <div class="stars"></div>
+        <blockquote>„Fantastische Boutique mit wunderschönen Sachen. Dank toller Beratung bin ich mit mehr nach Hause gegangen als geplant — mein neuer Lieblingsladen in Frankfurt. Schön, dass es noch inhabergeführte Läden mit guter Qualität zu fairen Preisen gibt!“</blockquote>
+        <cite>Google-Rezension</cite>
+      </article>
+      <article class="quote" data-rev style="--d:.12s">
+        <div class="stars"></div>
+        <blockquote>„Ein Kleid im Schaufenster war leider schon reserviert — das Team hat es einfach für mich nachbestellt. Die Qualität ist hervorragend, der Preis absolut fair. Sehr zu empfehlen!“</blockquote>
+        <cite>Google-Rezension</cite>
+      </article>
+      <article class="quote" data-rev style="--d:.18s">
+        <div class="stars"></div>
+        <blockquote>„Ein wirklich zauberhafter kleiner Laden mit toller Auswahl, freundlichem Team und charmanter Atmosphäre. Ich fühle mich beim Stöbern immer wohl — und komme definitiv wieder.“</blockquote>
+        <cite>Google-Rezension</cite>
+      </article>
+      <article class="quote" data-rev style="--d:.24s">
+        <div class="stars"></div>
+        <blockquote>„Sehr gute Angebote und eine sehr freundliche Beratung — ich habe zwei wunderschöne Strickkleider mitgenommen.“</blockquote>
+        <cite>Google-Rezension</cite>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="tv">
+  <img class="flower-static fs-tv" src="assets/flower_anemone.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+  <div class="shell layout">
+    <div class="copy">
+      <p class="kicker" data-rev>Aus dem Fernsehen</p>
+      <h2 data-rev style="--d:.08s">Bekannt aus <span class="it">&bdquo;Shopping&nbsp;Queen&ldquo;.</span></h2>
+      <p data-rev style="--d:.16s">Wenn Guido Maria Kretschmer seine Kandidatinnen in Frankfurt auf Shopping-Mission schickt, führt der Weg auf die Berger Straße — auch unsere Boutique war schon Drehort der VOX-Kultsendung. Zu sehen in der Frankfurt-Woche, Tag&nbsp;3: „Mercy und Prince&nbsp;Damien“.</p>
+      <div data-rev style="--d:.24s"><a class="pill light" href="https://plus.rtl.de/shopping-queen-p_9108/video/tag-3-mercy-und-prince-damien-frankfurt-c_112220" target="_blank" rel="noopener">Folge ansehen — RTL+</a></div>
+    </div>
+    <a class="tv-screen" data-rev="right" href="https://plus.rtl.de/shopping-queen-p_9108/video/tag-3-mercy-und-prince-damien-frankfurt-c_112220" target="_blank" rel="noopener" aria-label="Shopping Queen, Tag 3: Mercy und Prince Damien, Frankfurt — Folge bei RTL+ ansehen">
+      <img src="assets/real_outfit.jpg" alt="" loading="lazy">
+      <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+      <span class="tv-tag">RTL+ &middot; Shopping Queen &middot; Frankfurt</span>
+    </a>
+  </div>
+</section>
+
+<section id="besuch">
+  <canvas class="bloom b1" data-flower="peony" width="480" height="480" aria-hidden="true"></canvas>
+  <img class="flower-static fs-besuch" src="assets/flower_ranunculus.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+  <div class="shell layout">
+    <div class="info">
+      <p class="kicker" data-rev>Besuch</p>
+      <h2 data-rev style="--d:.08s">Mitten auf der <span class="it grad">Berger.</span></h2>
+      <div class="hours" data-rev style="--d:.14s">
+        <div><span>Montag – Samstag</span><span>11:00 – 19:00 Uhr</span></div>
+        <div class="closed"><span>Sonntag</span><span>Geschlossen</span></div>
+      </div>
+      <div class="contact-rows" data-rev style="--d:.2s">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Aries+Fashion+GmbH%2C+Berger+Str.+63%2C+60316+Frankfurt+am+Main" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          Berger Str. 63 · 60316 Frankfurt am Main
+        </a>
+        <a href="tel:+4969448825">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+          069 44 88 25
+        </a>
+        <a href="mailto:ariesfashion.gmbh@web.de">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          ariesfashion.gmbh@web.de
+        </a>
+      </div>
+      <p data-rev style="--d:.26s;color:var(--ink-soft)">Mit der U4 bis Merianplatz, von dort sind es zwei Minuten zu Fuß. Wer mit dem Rad kommt, stellt es direkt vor der Tür ab.</p>
+    </div>
+    <div class="mapwrap" data-rev="right">
+      <iframe title="Karte: Aries Fashion, Berger Str. 63, Frankfurt" src="https://www.google.com/maps?q=Aries%20Fashion%20GmbH%2C%20Berger%20Str.%2063%2C%2060316%20Frankfurt%20am%20Main&output=embed&hl=de" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img class="foot-flower" src="assets/flower_peony.webp" alt="" aria-hidden="true">
+  <img class="flower-static fs-footer" src="assets/flower_gardenrose.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+  <div id="logo3d" role="img" aria-label="Aries Fashion Logo, dreidimensional" data-rev></div>
+  <div class="socials" data-rev style="--d:.1s">
+    <a class="sbtn" href="https://www.instagram.com/aries.mode/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+      Instagram
+    </a>
+    <a class="sbtn" href="https://www.facebook.com/ariesfashiononline/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 8h3V4.5h-3A3.5 3.5 0 0 0 10.5 8v2.5H8V14h2.5v6H14v-6h2.7l.55-3.5H14V8.5a.5.5 0 0 1 .5-.5Z"/></svg>
+      Facebook
+    </a>
+    <a class="sbtn" href="mailto:ariesfashion.gmbh@web.de">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      E-Mail
+    </a>
+    <a class="sbtn" href="tel:+4969448825">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+      Anrufen
+    </a>
+  </div>
+  <p class="addr" data-rev style="--d:.15s">…für alle Tage und doch immer etwas Besonderes!</p>
+  <div class="base">
+    <span>Aries Fashion GmbH</span>
+    <span>Berger Str. 63 · 60316 Frankfurt am Main</span>
+    <span>Mo–Sa 11–19 Uhr</span>
+    <span>★ 5,0 · 36 Google-Rezensionen</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const N_FRAMES = 80;
+const FRAMES = Array.from({length: N_FRAMES}, (_, i) => `frames/f_${String(i+1).padStart(3,'0')}.jpg`);
+const STAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9z"/></svg>';
+document.querySelectorAll('.stars').forEach(el => el.innerHTML = STAR.repeat(5));
+const MQ = ["Zweimal pro Woche neue Ware","Kleider · Strick · Jeans","Taschen · Schmuck · Schuhe","Seit über 20 Jahren inhabergeführt","Bekannt aus „Shopping Queen“ (VOX)","Berger Straße 63 · Frankfurt","★ 5,0 bei Google"];
+const mqset = document.getElementById('mqset');
+mqset.innerHTML = MQ.map(t => `<span>${t}</span><i></i>`).join('');
+mqset.parentElement.appendChild(mqset.cloneNode(true));
+
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* hero film */
+const filmCv = document.getElementById('film');
+const fctx = filmCv.getContext('2d');
+const hero = document.getElementById('hero');
+const imgs = new Array(FRAMES.length);
+let curIdx = -1, targetP = 0, smoothP = 0;
+function sizeFilm(){
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  filmCv.width = innerWidth * dpr;
+  filmCv.height = innerHeight * dpr;
+  curIdx = -1;
+}
+sizeFilm();
+addEventListener('resize', sizeFilm);
+function drawFrame(i){
+  const img = imgs[i];
+  if(!img || !img.complete || !img.naturalWidth) return;
+  const cw = filmCv.width, ch = filmCv.height;
+  const iw = img.naturalWidth, ih = img.naturalHeight;
+  const s = Math.max(cw/iw, ch/ih) * (1 + smoothP*0.07);
+  const w = iw*s, h = ih*s;
+  fctx.clearRect(0,0,cw,ch);
+  fctx.drawImage(img, (cw-w)/2, (ch-h)/2, w, h);
+}
+FRAMES.forEach((src, i) => {
+  const im = new Image();
+  im.onload = () => { if(i === 0) drawFrame(0); };
+  im.src = src;
+  imgs[i] = im;
+});
+function heroProgress(){
+  const rect = hero.getBoundingClientRect();
+  const total = hero.offsetHeight - innerHeight;
+  return Math.min(1, Math.max(0, -rect.top / total));
+}
+
+/* scroll-scrubbed flowers */
+const N_BLOOM = 48;
+const blooms = [...document.querySelectorAll('canvas.bloom')].map(cv => ({
+  cv, ctx: cv.getContext('2d'), name: cv.dataset.flower,
+  section: cv.closest('section'), imgs: [], loading: false, idx: -1
+}));
+function loadBloom(b){
+  if(b.loading) return;
+  b.loading = true;
+  for(let i = 1; i <= N_BLOOM; i++){
+    const im = new Image();
+    im.src = `flowers/${b.name}/w_${String(i).padStart(3,'0')}.webp`;
+    b.imgs[i-1] = im;
+  }
+}
+const bloomIO = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if(e.isIntersecting){
+      const b = blooms.find(x => x.section === e.target);
+      if(b) loadBloom(b);
+    }
+  });
+}, {rootMargin: '120% 0px'});
+blooms.forEach(b => bloomIO.observe(b.section));
+function drawBloom(b, i){
+  const img = b.imgs[i];
+  if(!img || !img.complete || !img.naturalWidth) return;
+  b.ctx.clearRect(0, 0, 480, 480);
+  b.ctx.drawImage(img, 0, 0, 480, 480);
+  b.idx = i;
+}
+
+/* 3D logo in footer */
+const holder = document.getElementById('logo3d');
+let renderer, scene, camera, logoMesh;
+function initLogo3D(LOGO_SHAPES){
+  try{
+    renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+    renderer.setPixelRatio(Math.min(devicePixelRatio||1, 2));
+    holder.appendChild(renderer.domElement);
+    renderer.domElement.style.width='100%';
+    renderer.domElement.style.height='100%';
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(28, 2, 0.1, 100);
+    camera.position.set(0, 0, 13);
+    const key = new THREE.DirectionalLight(0xffffff, 1.05); key.position.set(4, 7, 9); scene.add(key);
+    const fill = new THREE.DirectionalLight(0xb8d4f0, 0.6); fill.position.set(-6, -2, 6); scene.add(fill);
+    const rim  = new THREE.PointLight(0xe8aec4, 1.6, 60);   rim.position.set(-7, 3, -8); scene.add(rim);
+    const rim2 = new THREE.PointLight(0x7ba3d4, 1.1, 60);   rim2.position.set(8, -4, -6); scene.add(rim2);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+    function walk(target, sub){
+      target.moveTo(sub.m[0], sub.m[1]);
+      for(const s of sub.s){
+        if(s[0]==='C') target.bezierCurveTo(s[1],s[2],s[3],s[4],s[5],s[6]);
+        else target.lineTo(s[1],s[2]);
+      }
+      target.closePath();
+    }
+    const shapes = LOGO_SHAPES.map(d => {
+      const sh = new THREE.Shape(); walk(sh, d.c);
+      d.h.forEach(hh => { const p = new THREE.Path(); walk(p, hh); sh.holes.push(p); });
+      return sh;
+    });
+    const geo = new THREE.ExtrudeGeometry(shapes, {
+      depth: .5, curveSegments: 7,
+      bevelEnabled: true, bevelThickness: .045, bevelSize: .04, bevelSegments: 2
+    });
+    geo.center();
+    const mat = new THREE.MeshPhysicalMaterial({
+      color: 0xf3d9e4, roughness: .3, metalness: .12,
+      clearcoat: .85, clearcoatRoughness: .22
+    });
+    logoMesh = new THREE.Mesh(geo, mat);
+    scene.add(logoMesh);
+    function sizeLogo(){
+      const w = holder.clientWidth, h = holder.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w/h;
+      camera.updateProjectionMatrix();
+    }
+    sizeLogo();
+    addEventListener('resize', sizeLogo);
+  }catch(e){ flatLogo(); }
+}
+function flatLogo(){
+  holder.innerHTML = '<img src="assets/logo-paper.svg" alt="Aries Fashion" style="width:100%;height:100%;object-fit:contain">';
+}
+if(typeof THREE === 'undefined'){ flatLogo(); }
+else fetch('/assets/logo_shapes.json').then(r => r.json()).then(initLogo3D).catch(flatLogo);
+
+/* main loop */
+const heroCenter = document.querySelector('.hero-center');
+const hint = document.querySelector('.scroll-hint');
+const silk = document.getElementById('silkimg');
+let t0 = performance.now();
+function loop(now){
+  const t = (now - t0)/1000;
+  targetP = heroProgress();
+  smoothP += (targetP - smoothP) * 0.09;
+  if(!REDUCED){
+    const i = Math.min(FRAMES.length-1, Math.round(smoothP*(FRAMES.length-1)));
+    if(i !== curIdx && imgs[i] && imgs[i].complete && imgs[i].naturalWidth){ curIdx = i; drawFrame(i); }
+  } else if(curIdx < 0 && imgs[0] && imgs[0].complete && imgs[0].naturalWidth){ curIdx = 0; drawFrame(0); }
+  for(const b of blooms){
+    const cr = b.cv.getBoundingClientRect();
+    if(cr.bottom < -100 || cr.top > innerHeight + 100) continue;
+    const p = Math.min(1, Math.max(0, (innerHeight - cr.top) / (innerHeight * 0.85)));
+    const i = REDUCED ? N_BLOOM - 1 : Math.round(p * (N_BLOOM - 1));
+    if(i !== b.idx) drawBloom(b, i);
+  }
+  if(logoMesh){
+    const doc = document.documentElement;
+    const docP = Math.min(1, Math.max(0, scrollY / (doc.scrollHeight - innerHeight)));
+    logoMesh.rotation.y = docP*Math.PI*2 + Math.sin(t*0.6)*0.28;
+    logoMesh.rotation.x = Math.sin(t*0.5)*0.06 + 0.02;
+    const fr = holder.getBoundingClientRect();
+    if(fr.bottom > 0 && fr.top < innerHeight) renderer.render(scene, camera);
+  }
+  if(!REDUCED && heroCenter){
+    heroCenter.style.transform = `translateY(${smoothP*-46}px)`;
+    hint.style.opacity = Math.max(0, 1 - smoothP*6);
+  }
+  if(silk && !REDUCED){
+    const r = silk.parentElement.getBoundingClientRect();
+    if(r.bottom > 0 && r.top < innerHeight){
+      const p = (r.top + r.height/2 - innerHeight/2) / innerHeight;
+      silk.style.transform = `translateY(${p*-34}px)`;
+    }
+  }
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+/* reveals + nav */
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold: .18, rootMargin: '0px 0px -6% 0px'});
+document.querySelectorAll('[data-rev]').forEach(el => io.observe(el));
+const nav = document.getElementById('nav');
+function navState(){ nav.classList.toggle('solid', scrollY > innerHeight*0.55); }
+addEventListener('scroll', navState, {passive:true});
+navState();
+</script>
+</body>
+</html>
