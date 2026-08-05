@@ -529,28 +529,29 @@ function drawBloom(b, i){
   b.idx = i;
 }
 
-/* Bluetenblaetter: jedes wandert auf einer eigenen Bahn hin und her, Antippen gibt ihm einen Stups */
+/* Bluetenblaetter: dicht aufgereiht auf einer waagerechten Wellenlinie quer durch die
+   Sektion, die acht Motive wiederholen sich. Antippen gibt einem Blatt einen Stups. */
 const petalWrap = document.querySelector('.petals');
 const PETAL_NAMES = ['rose','kirschbluete','hortensie','magnolie','pfingstrose','anemone','tulpe','ranunkel'];
+const PETAL_COUNT = 44;   // wie viele davon sichtbar sind, entscheidet die Breite im Loop
 const petals = [];
-if(petalWrap) PETAL_NAMES.forEach((name, i) => {
+if(petalWrap) for(let i = 0; i < PETAL_COUNT; i++){
   const el = document.createElement('img');
   el.className = 'petal';
-  el.src = `assets/petals/petal-${name}.webp`;
+  el.src = `assets/petals/petal-${PETAL_NAMES[i % PETAL_NAMES.length]}.webp`;
   el.alt = ''; el.loading = 'lazy'; el.decoding = 'async'; el.draggable = false;
   petalWrap.appendChild(el);
   const p = {
     el,
-    size: 46 + (i % 3) * 8,                        // px
-    base: 0.12 + i * (0.76 / (PETAL_NAMES.length - 1)), // Platz in der Kette (0..1 entlang der Linie)
-    wob:  i * 1.1,                                 // eigene Phase fuers leichte Wackeln
-    tilt: -13 + (i % 5) * 6,                       // kleine Abweichung von der Kurventangente
+    size: 34 + (i % 3) * 8,        // px
+    wob:  i * 0.7,                 // eigene Phase fuers leichte Wackeln
+    tilt: -10 + (i % 5) * 5,       // kleine Abweichung von der Wellentangente
     kick: 0, kdir: 1
   };
   el.style.width = p.size + 'px';
   el.addEventListener('pointerdown', () => { p.kick = 1; p.kdir = Math.random() < .5 ? -1 : 1; });
   petals.push(p);
-});
+}
 
 /* Karte: erst auf Klick die Google-Einbettung nachladen (vorher kein Google-Kontakt) */
 const mapBtn = document.getElementById('mapload');
@@ -646,20 +647,23 @@ function loop(now){
   if(petals.length){
     const pr = petalWrap.getBoundingClientRect();
     if(pr.bottom > 0 && pr.top < innerHeight){
-      /* eine vertikale Schlangenlinie, auf der alle Blaetter hintereinander liegen
-         und gemeinsam langsam auf und ab gleiten */
-      const PAD = 54, WIND = 2, CX = 0.26, AMPX = 0.13;
-      const span = Math.max(80, pr.height - 2*PAD);
-      const glide = REDUCED ? 0 : Math.sin(t*0.045*2*Math.PI)*0.09;
-      for(const p of petals){
+      /* eine waagerechte Wellenlinie ueber die volle Breite; die Welle laeuft
+         nach rechts durch die Kette, die Blaetter wogen dadurch auf und ab */
+      const PADX = Math.min(70, pr.width*0.06), WAVES = 2.5, AMPY = 0.17;
+      const usable = Math.max(60, pr.width - 2*PADX);
+      const nVis = Math.max(8, Math.min(petals.length, Math.round(pr.width/80)));
+      for(let i = 0; i < petals.length; i++){
+        const p = petals[i];
+        if(i >= nVis){ if(p.el.style.display !== 'none') p.el.style.display = 'none'; continue; }
+        if(p.el.style.display === 'none') p.el.style.display = '';
         p.kick *= 0.955;
-        const s = p.base + glide;
-        const ang = s*WIND*2*Math.PI;
-        const x = pr.width*CX + Math.sin(ang)*AMPX*pr.width - p.size/2
-                + (REDUCED ? 0 : Math.sin(t*0.5 + p.wob)*5) + p.kdir*p.kick*55;
-        const y = PAD + s*span - p.size/2 - p.kick*34;
-        const slope = Math.cos(ang)*WIND*2*Math.PI*AMPX*pr.width/span;  // Tangente der Kurve
-        const rot = Math.atan(slope)*57.3*0.85 + p.tilt + p.kdir*p.kick*280;
+        const u = nVis > 1 ? i/(nVis-1) : 0.5;                  // 0..1 quer ueber die Sektion
+        const ang = u*WAVES*2*Math.PI - (REDUCED ? 0 : t*0.35); // Welle wandert nach rechts
+        const x = PADX + u*usable - p.size/2
+                + (REDUCED ? 0 : Math.sin(t*0.4 + p.wob)*4) + p.kdir*p.kick*40;
+        const y = pr.height*0.5 + Math.sin(ang)*AMPY*pr.height - p.size/2 - p.kick*34;
+        const slope = Math.cos(ang)*WAVES*2*Math.PI*AMPY*pr.height/usable;  // Tangente der Welle
+        const rot = Math.atan(slope)*57.3*0.8 + p.tilt + p.kdir*p.kick*280;
         p.el.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) rotate(${rot.toFixed(1)}deg)`;
       }
     }
