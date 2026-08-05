@@ -541,13 +541,10 @@ if(petalWrap) PETAL_NAMES.forEach((name, i) => {
   petalWrap.appendChild(el);
   const p = {
     el,
-    size:  40 + (i % 4) * 12,          // px
-    lane:  14 + i * 9.6,               // % von oben - eigene Bahn je Blatt
-    mid:   50 + ((i % 3) - 1) * 6,     // % Bahnmitte
-    amp:   20 + (i % 4) * 5,           // % Ausschlag - so bemessen, dass nichts den Rand beruehrt
-    speed: 0.055 + (i % 5) * 0.013,    // Zyklen pro Sekunde
-    phase: i * 0.87,
-    rot:   -30 + i * 15,               // Grundneigung
+    size: 46 + (i % 3) * 8,                        // px
+    base: 0.12 + i * (0.76 / (PETAL_NAMES.length - 1)), // Platz in der Kette (0..1 entlang der Linie)
+    wob:  i * 1.1,                                 // eigene Phase fuers leichte Wackeln
+    tilt: -13 + (i % 5) * 6,                       // kleine Abweichung von der Kurventangente
     kick: 0, kdir: 1
   };
   el.style.width = p.size + 'px';
@@ -649,13 +646,20 @@ function loop(now){
   if(petals.length){
     const pr = petalWrap.getBoundingClientRect();
     if(pr.bottom > 0 && pr.top < innerHeight){
+      /* eine vertikale Schlangenlinie, auf der alle Blaetter hintereinander liegen
+         und gemeinsam langsam auf und ab gleiten */
+      const PAD = 54, WIND = 2, CX = 0.26, AMPX = 0.13;
+      const span = Math.max(80, pr.height - 2*PAD);
+      const glide = REDUCED ? 0 : Math.sin(t*0.045*2*Math.PI)*0.09;
       for(const p of petals){
-        const sw = REDUCED ? 0 : Math.sin(t*p.speed*2*Math.PI + p.phase);
         p.kick *= 0.955;
-        const x = pr.width*(p.mid + sw*p.amp)/100 - p.size/2 + p.kdir*p.kick*55;
-        const y = pr.height*p.lane/100 - p.size/2
-                + (REDUCED ? 0 : Math.sin(t*0.55 + p.phase)*9) - p.kick*34;
-        const rot = p.rot + sw*16 + p.kdir*p.kick*280;
+        const s = p.base + glide;
+        const ang = s*WIND*2*Math.PI;
+        const x = pr.width*CX + Math.sin(ang)*AMPX*pr.width - p.size/2
+                + (REDUCED ? 0 : Math.sin(t*0.5 + p.wob)*5) + p.kdir*p.kick*55;
+        const y = PAD + s*span - p.size/2 - p.kick*34;
+        const slope = Math.cos(ang)*WIND*2*Math.PI*AMPX*pr.width/span;  // Tangente der Kurve
+        const rot = Math.atan(slope)*57.3*0.85 + p.tilt + p.kdir*p.kick*280;
         p.el.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) rotate(${rot.toFixed(1)}deg)`;
       }
     }
