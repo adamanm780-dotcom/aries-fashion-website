@@ -680,6 +680,21 @@ function flatLogo(){
 if(typeof THREE === 'undefined'){ flatLogo(); }
 else fetch('assets/logo_shapes.json').then(r => r.json()).then(initLogo3D).catch(flatLogo);
 
+/* Das 3D-Logo dreht sich zum Mauszeiger. Nur bei echter Maus - auf
+   Touch-Geraeten gibt es keinen Zeiger, dort pendelt es weiter. */
+let mouseAim = false, aimX = 0, aimY = 0, curAimX = 0, curAimY = 0;
+addEventListener('pointermove', e => {
+  if(e.pointerType && e.pointerType !== 'mouse') return;
+  const r = holder.getBoundingClientRect();
+  if(!r.width) return;
+  aimX = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width/2)) / (innerWidth*0.5)));
+  aimY = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height/2)) / (innerHeight*0.5)));
+  if(!mouseAim){                       // weich aus der Pendelstellung uebernehmen
+    if(logoMesh){ curAimX = logoMesh.rotation.y/0.85; curAimY = logoMesh.rotation.x/0.34; }
+    mouseAim = true;
+  }
+}, {passive: true});
+
 /* main loop */
 const heroCenter = document.querySelector('.hero-center');
 const hint = document.querySelector('.scroll-hint');
@@ -728,8 +743,14 @@ function loop(now){
     if(REDUCED){
       logoMesh.rotation.y = -0.38;
       logoMesh.rotation.x = 0.03;
+    }else if(mouseAim){
+      /* folgt dem Zeiger, zieht sanft nach */
+      curAimX += (aimX - curAimX) * 0.075;
+      curAimY += (aimY - curAimY) * 0.075;
+      logoMesh.rotation.y = curAimX * 0.85;
+      logoMesh.rotation.x = curAimY * 0.34 + Math.sin(t*0.5)*0.025;
     }else{
-      /* pendelt +/-40 Grad um die Frontalansicht - Wortmarke bleibt lesbar */
+      /* ohne Maus (Touch): pendelt +/-40 Grad um die Frontalansicht */
       logoMesh.rotation.y = Math.sin(t*0.42)*0.7;
       logoMesh.rotation.x = Math.sin(t*0.5)*0.06 + 0.02;
     }
