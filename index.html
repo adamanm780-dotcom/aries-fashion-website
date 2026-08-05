@@ -104,11 +104,11 @@ section{padding:clamp(84px,11vw,150px) var(--gutter);position:relative;overflow:
 .bloom.b2{bottom:calc(-1*clamp(40px,6vw,90px));left:calc(-1*clamp(60px,9vw,140px));width:clamp(240px,32vw,440px);height:clamp(240px,32vw,440px);transform:rotate(-7deg);opacity:.9}
 .flower-static{position:absolute;pointer-events:none;z-index:1;filter:drop-shadow(0 14px 34px rgba(196,120,143,.3));transform:rotate(var(--r,0deg)) scaleX(var(--sx,1));animation:fsdrift var(--dur,14s) ease-in-out infinite;animation-delay:var(--dly,0s);will-change:transform}
 @keyframes fsdrift{0%,100%{transform:translate3d(0,0,0) rotate(var(--r,0deg)) scaleX(var(--sx,1))}50%{transform:translate3d(0,-15px,0) rotate(calc(var(--r,0deg) + 1.6deg)) scaleX(var(--sx,1))}}
-.fs-boutique{top:calc(-1*clamp(28px,4.5vw,80px));right:calc(-1*clamp(40px,6vw,115px));width:clamp(200px,26vw,375px);--r:170deg;opacity:.72;--dur:16s}
-.fs-sortiment{bottom:calc(-1*clamp(48px,7vw,120px));right:calc(-1*clamp(48px,7vw,130px));width:clamp(210px,27vw,385px);--r:13deg;opacity:.5;filter:drop-shadow(0 16px 42px rgba(123,163,212,.5));--dur:19s;--dly:-4s}
-.fs-stimmen{top:clamp(38px,6vw,92px);right:calc(-1*clamp(38px,5vw,100px));width:clamp(180px,22vw,315px);--r:-9deg;opacity:.72;--dur:15s;--dly:-7s}
+.fs-boutique{top:calc(-1*clamp(28px,4.5vw,80px));right:clamp(4px,1vw,26px);width:clamp(200px,26vw,375px);--r:170deg;opacity:.72;--dur:16s}
+.fs-sortiment{bottom:calc(-1*clamp(48px,7vw,120px));right:clamp(4px,1vw,26px);width:clamp(210px,27vw,385px);--r:13deg;opacity:.5;filter:drop-shadow(0 16px 42px rgba(123,163,212,.5));--dur:19s;--dly:-4s}
+.fs-stimmen{top:clamp(38px,6vw,92px);right:clamp(4px,1vw,26px);width:clamp(180px,22vw,315px);--r:-9deg;opacity:.72;--dur:15s;--dly:-7s}
 .fs-tv{bottom:calc(-1*clamp(58px,8vw,130px));left:calc(-1*clamp(48px,7vw,120px));width:clamp(200px,25vw,355px);--r:-15deg;opacity:.44;filter:drop-shadow(0 16px 42px rgba(232,174,196,.4));--dur:18s;--dly:-2s}
-.fs-besuch{top:calc(-1*clamp(28px,4vw,70px));right:calc(-1*clamp(28px,4vw,90px));width:clamp(190px,24vw,335px);--r:22deg;--sx:-1;opacity:.8;--dur:17s;--dly:-9s}
+.fs-besuch{top:calc(-1*clamp(28px,4vw,70px));right:clamp(4px,1vw,26px);width:clamp(190px,24vw,335px);--r:22deg;--sx:-1;opacity:.8;--dur:17s;--dly:-9s}
 .fs-footer{bottom:calc(-1*clamp(38px,6vw,100px));left:calc(-1*clamp(38px,6vw,110px));width:clamp(170px,21vw,295px);--r:-12deg;opacity:.5;--dur:20s;--dly:-5s}
 @media(max-width:900px){.fs-boutique,.fs-sortiment,.fs-tv,.fs-footer{display:none}.fs-stimmen,.fs-besuch{width:clamp(115px,29vw,175px);opacity:.5}}
 .sec-head{display:flex;flex-direction:column;gap:20px;margin-bottom:clamp(40px,5vw,70px)}
@@ -205,11 +205,21 @@ section{padding:clamp(84px,11vw,150px) var(--gutter);position:relative;overflow:
 .contact-rows a:hover{color:var(--rose-deep);padding-left:6px}
 .contact-rows svg{width:17px;height:17px;flex-shrink:0;color:var(--rose-deep)}
 .mapwrap{border-radius:var(--rad);overflow:hidden;border:1px solid rgba(123,163,212,.3);min-height:420px;position:relative;box-shadow:0 24px 60px -26px rgba(123,163,212,.55)}
-.mapwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.04);transition:filter .7s}
-.mapwrap:hover iframe{filter:none}
+.mapwrap iframe,.mapwrap .mapimg{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;filter:grayscale(1) contrast(1.04);transition:filter .7s}
+.mapwrap:hover iframe,.mapwrap:hover .mapimg{filter:none}
+.mappin{position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--rose-deep);box-shadow:0 0 0 4px rgba(232,174,196,.5),0 4px 14px rgba(26,22,38,.35);z-index:3;pointer-events:none}
+.mappin::after{content:"";position:absolute;inset:-9px;border-radius:50%;border:2px solid var(--rose-deep);animation:pinpulse 2.8s ease-out infinite}
+@keyframes pinpulse{0%{transform:scale(.55);opacity:.75}100%{transform:scale(1.6);opacity:0}}
+@media(prefers-reduced-motion:reduce){.mappin::after{animation:none;opacity:.35}}
+.mapbar{position:absolute;left:0;right:0;bottom:0;z-index:4;display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:26px 16px 14px;background:linear-gradient(180deg,rgba(242,246,252,0),rgba(242,246,252,.94) 62%)}
+.mapattr{font-size:11px;color:var(--ink-soft);letter-spacing:.02em}
+.mapattr a{color:inherit;text-underline-offset:2px}
+.mapbtn{font:inherit;font-size:12.5px;font-weight:500;line-height:1.25;cursor:pointer;padding:9px 16px;border-radius:999px;border:1px solid var(--line-strong);background:rgba(255,255,255,.9);color:var(--ink);transition:background .3s,border-color .3s}
+.mapbtn:hover{background:#fff;border-color:var(--rose-deep)}
+.mapbtn em{display:block;font-style:normal;font-size:10px;font-weight:400;opacity:.55;margin-top:1px}
 @media(max-width:900px){#besuch .layout{grid-template-columns:1fr}.mapwrap{min-height:340px}}
 footer{background:var(--ink);color:var(--paper);padding:clamp(70px,9vw,120px) var(--gutter) 34px;text-align:center;position:relative;overflow:hidden}
-footer .foot-flower{position:absolute;top:-30px;right:calc(-1*clamp(30px,5vw,70px));width:clamp(140px,18vw,240px);transform:rotate(18deg);opacity:.85;pointer-events:none}
+footer .foot-flower{position:absolute;top:-30px;right:clamp(6px,1.4vw,34px);width:clamp(140px,18vw,240px);transform:rotate(18deg);opacity:.85;pointer-events:none}
 #logo3d{width:min(78vw,560px);height:calc(min(78vw,560px)*.5);margin:0 auto clamp(28px,3.5vw,44px);position:relative;z-index:2}
 .socials{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:clamp(40px,5vw,64px);position:relative;z-index:2}
 .sbtn{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(242,246,252,.32);border-radius:999px;padding:12px 24px;text-decoration:none;font-weight:600;font-size:13.5px;letter-spacing:.05em;transition:background .35s,color .35s,border-color .35s,transform .35s}
@@ -396,7 +406,12 @@ footer .base{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;bo
       <p data-rev style="--d:.26s;color:var(--ink-soft)">Mit der U4 bis Merianplatz, von dort sind es zwei Minuten zu Fuß. Wer mit dem Rad kommt, stellt es direkt vor der Tür ab.</p>
     </div>
     <div class="mapwrap" data-rev="right">
-      <iframe title="Karte: Aries Fashion, Berger Str. 63, Frankfurt" src="https://www.google.com/maps?q=Aries%20Fashion%20GmbH%2C%20Berger%20Str.%2063%2C%2060316%20Frankfurt%20am%20Main&output=embed&hl=de" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <img class="mapimg" src="assets/karte.webp" width="1300" height="900" loading="lazy" decoding="async" alt="Stadtplan: Aries Fashion, Berger Straße 63, Frankfurt-Nordend — wenige Schritte vom Merianplatz">
+      <span class="mappin" aria-hidden="true"></span>
+      <div class="mapbar">
+        <span class="mapattr">Karte © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>-Mitwirkende</span>
+        <button class="mapbtn" type="button" id="mapload">Interaktive Karte laden<em>lädt Google Maps</em></button>
+      </div>
     </div>
   </div>
 </section>
@@ -512,6 +527,19 @@ function drawBloom(b, i){
   b.ctx.drawImage(img, 0, 0, 480, 480);
   b.idx = i;
 }
+
+/* Karte: erst auf Klick die Google-Einbettung nachladen (vorher kein Google-Kontakt) */
+const mapBtn = document.getElementById('mapload');
+if(mapBtn) mapBtn.addEventListener('click', () => {
+  const wrap = mapBtn.closest('.mapwrap');
+  const f = document.createElement('iframe');
+  f.title = 'Karte: Aries Fashion, Berger Str. 63, Frankfurt';
+  f.src = 'https://www.google.com/maps?q=Aries%20Fashion%20GmbH%2C%20Berger%20Str.%2063%2C%2060316%20Frankfurt%20am%20Main&output=embed&hl=de';
+  f.referrerPolicy = 'no-referrer-when-downgrade';
+  f.allowFullscreen = true;
+  wrap.querySelectorAll('.mapimg,.mappin,.mapbar').forEach(el => el.remove());
+  wrap.appendChild(f);
+});
 
 /* 3D logo in footer */
 const holder = document.getElementById('logo3d');
