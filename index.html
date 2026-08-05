@@ -99,17 +99,17 @@ nav .links a:hover::after{width:100%}
 section{padding:clamp(84px,11vw,150px) var(--gutter);position:relative;overflow:hidden}
 .shell{max-width:1240px;margin:0 auto;position:relative;z-index:2}
 .bloom{position:absolute;pointer-events:none;z-index:1}
-.bloom.b1{bottom:calc(-1*clamp(60px,8vw,115px));left:calc(-1*clamp(70px,10vw,150px));width:clamp(210px,27vw,390px);height:clamp(210px,27vw,390px);transform:rotate(-8deg) scaleX(-1);opacity:.95}
+.bloom.b1{bottom:clamp(6px,1.2vw,30px);left:clamp(6px,1.2vw,30px);width:clamp(210px,27vw,390px);height:clamp(210px,27vw,390px);transform:rotate(-8deg) scaleX(-1);opacity:.95}
 @media(max-width:900px){.bloom.b1{display:none}}
-.bloom.b2{bottom:calc(-1*clamp(40px,6vw,90px));left:calc(-1*clamp(60px,9vw,140px));width:clamp(240px,32vw,440px);height:clamp(240px,32vw,440px);transform:rotate(-7deg);opacity:.9}
+.bloom.b2{bottom:clamp(6px,1.2vw,30px);left:clamp(6px,1.2vw,30px);width:clamp(240px,32vw,440px);height:clamp(240px,32vw,440px);transform:rotate(-7deg);opacity:.9}
 .flower-static{position:absolute;pointer-events:none;z-index:1;filter:drop-shadow(0 14px 34px rgba(196,120,143,.3));transform:rotate(var(--r,0deg)) scaleX(var(--sx,1));animation:fsdrift var(--dur,14s) ease-in-out infinite;animation-delay:var(--dly,0s);will-change:transform}
 @keyframes fsdrift{0%,100%{transform:translate3d(0,0,0) rotate(var(--r,0deg)) scaleX(var(--sx,1))}50%{transform:translate3d(0,-15px,0) rotate(calc(var(--r,0deg) + 1.6deg)) scaleX(var(--sx,1))}}
 .fs-boutique{top:calc(-1*clamp(28px,4.5vw,80px));right:clamp(4px,1vw,26px);width:clamp(200px,26vw,375px);--r:170deg;opacity:.72;--dur:16s}
 .fs-sortiment{bottom:calc(-1*clamp(48px,7vw,120px));right:clamp(4px,1vw,26px);width:clamp(210px,27vw,385px);--r:13deg;opacity:.5;filter:drop-shadow(0 16px 42px rgba(123,163,212,.5));--dur:19s;--dly:-4s}
 .fs-stimmen{top:clamp(38px,6vw,92px);right:clamp(4px,1vw,26px);width:clamp(180px,22vw,315px);--r:-9deg;opacity:.72;--dur:15s;--dly:-7s}
-.fs-tv{bottom:calc(-1*clamp(58px,8vw,130px));left:calc(-1*clamp(48px,7vw,120px));width:clamp(200px,25vw,355px);--r:-15deg;opacity:.44;filter:drop-shadow(0 16px 42px rgba(232,174,196,.4));--dur:18s;--dly:-2s}
+.fs-tv{bottom:clamp(6px,1.2vw,30px);left:clamp(4px,1vw,26px);width:clamp(200px,25vw,355px);--r:-15deg;opacity:.44;filter:drop-shadow(0 16px 42px rgba(232,174,196,.4));--dur:18s;--dly:-2s}
 .fs-besuch{top:calc(-1*clamp(28px,4vw,70px));right:clamp(4px,1vw,26px);width:clamp(190px,24vw,335px);--r:22deg;--sx:-1;opacity:.8;--dur:17s;--dly:-9s}
-.fs-footer{bottom:calc(-1*clamp(38px,6vw,100px));left:calc(-1*clamp(38px,6vw,110px));width:clamp(170px,21vw,295px);--r:-12deg;opacity:.5;--dur:20s;--dly:-5s}
+.fs-footer{bottom:clamp(6px,1.2vw,30px);left:clamp(4px,1vw,26px);width:clamp(170px,21vw,295px);--r:-12deg;opacity:.5;--dur:20s;--dly:-5s}
 @media(max-width:900px){.fs-boutique,.fs-sortiment,.fs-tv,.fs-footer{display:none}.fs-stimmen,.fs-besuch{width:clamp(115px,29vw,175px);opacity:.5}}
 .sec-head{display:flex;flex-direction:column;gap:20px;margin-bottom:clamp(40px,5vw,70px)}
 .sec-head h2{font-size:clamp(32px,4.4vw,58px)}
