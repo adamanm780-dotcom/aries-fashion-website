@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+
+# Der klassische Pages-Builder ("legacy") ist am 2026-08-06 bei diesem Repo
+# haengengeblieben und mit "Page build failed" abgebrochen. Deshalb wird die
+# Seite jetzt ueber Actions veroeffentlicht. Inhalte bleiben unveraendert:
+# das komplette Repo-Verzeichnis wird 1:1 ausgeliefert.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo auschecken
+        uses: actions/checkout@v4
+
+      - name: Pages vorbereiten
+        uses: actions/configure-pages@v5
+
+      - name: Seite als Artefakt packen
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Veroeffentlichen
+        id: deployment
+        uses: actions/deploy-pages@v4
