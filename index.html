@@ -101,6 +101,24 @@ section{padding:clamp(84px,11vw,150px) var(--gutter);position:relative;overflow:
 .bloom{position:absolute;pointer-events:none;z-index:1}
 .bloom.b1{bottom:clamp(6px,1.2vw,30px);left:clamp(6px,1.2vw,30px);width:clamp(210px,27vw,390px);height:clamp(210px,27vw,390px);transform:rotate(-8deg) scaleX(-1);opacity:.95}
 @media(max-width:900px){.bloom.b1{display:none}}
+/* Neu bei uns */
+#neu{background:linear-gradient(180deg,var(--paper) 0%,var(--paper-rose) 100%)}
+#neu .sec-head{flex-direction:row;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+#neu .sec-head>p{max-width:27em;color:var(--ink-soft);font-size:15px}
+.neu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,34px)}
+.neu-card{display:flex;flex-direction:column;gap:15px}
+.neu-card .im{position:relative;border-radius:var(--rad);overflow:hidden;aspect-ratio:3/4;box-shadow:0 26px 54px -30px rgba(26,22,38,.5)}
+.neu-card .im img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.6,.2,1)}
+.neu-card:hover .im img{transform:scale(1.05)}
+.neu-tag{position:absolute;top:14px;left:14px;z-index:2;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:rgba(255,255,255,.9);padding:6px 11px;border-radius:999px}
+.neu-card .row{display:flex;align-items:baseline;justify-content:space-between;gap:14px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.neu-card .row b{font-family:var(--disp);font-weight:340;font-size:clamp(20px,1.8vw,26px)}
+.neu-card .pr{font-size:14px;color:var(--rose-deep);white-space:nowrap}
+.neu-card>p{font-size:14.5px;color:var(--ink-soft)}
+.neu-note{margin-top:clamp(34px,4vw,56px);text-align:center;font-size:13px;color:var(--ink-soft)}
+.neu-note a{color:var(--rose-deep);text-underline-offset:3px}
+@media(max-width:900px){#neu .sec-head{flex-direction:column;align-items:flex-start}.neu-grid{grid-template-columns:1fr;gap:36px}}
+
 /* wandernde Bluetenblaetter (Stimmen-Sektion) */
 .petals{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
 .petal{position:absolute;left:0;top:0;pointer-events:auto;cursor:pointer;will-change:transform;filter:drop-shadow(0 9px 20px rgba(196,120,143,.24));-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-drag:none}
@@ -265,6 +283,7 @@ footer .base{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;bo
   <ul class="links">
     <li><a href="#boutique">Die Boutique</a></li>
     <li><a href="#sortiment">Sortiment</a></li>
+    <li><a href="#neu">Neu</a></li>
     <li><a href="#stimmen">Stimmen</a></li>
     <li><a href="#besuch">Besuch</a></li>
   </ul>
@@ -341,6 +360,36 @@ footer .base{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;bo
       </a>
     </div>
     <p class="sort-note" data-rev>Außerdem: Jeans, Blusen, Schuhe und Accessoires für jede Saison — am schönsten live im Laden.</p>
+  </div>
+</section>
+
+<section id="neu">
+  <div class="shell">
+    <div class="sec-head">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <p class="kicker" data-rev>Neu bei uns</p>
+        <h2 data-rev style="--d:.08s">Gerade neu&nbsp;eingetroffen</h2>
+      </div>
+      <p data-rev style="--d:.15s">Zweimal pro Woche kommt neue Ware herein. Diese Stücke liegen jetzt im Laden — erfahrungsgemäß sind die schönsten Größen schnell weg.</p>
+    </div>
+    <div class="neu-grid">
+      <article class="neu-card" data-rev>
+        <div class="im"><span class="neu-tag">Neu</span><img src="assets/neu/neu-kleider.webp" width="720" height="960" loading="lazy" decoding="async" alt="Trägerkleider mit Blütenstruktur auf einer Stange, in Hellblau, Dunkelbraun, Rosé, Taupe und Schwarz"></div>
+        <div class="row"><b>Blütenkleider</b><span class="pr">69,99 €</span></div>
+        <p>Leichter Jacquard mit eingewebtem Blütenrelief, schmale Träger, weit schwingender Rock — in Hellblau, Rosé, Taupe, Dunkelbraun und Schwarz.</p>
+      </article>
+      <article class="neu-card" data-rev style="--d:.12s">
+        <div class="im"><span class="neu-tag">Neu</span><img src="assets/neu/neu-ketten.webp" width="720" height="960" loading="lazy" decoding="async" alt="Mehrreihige Perlenketten in Türkis, Grün und Flieder mit goldenen Details"></div>
+        <div class="row"><b>Perlenketten</b><span class="pr">14,99 €</span></div>
+        <p>Fein geschliffene Glasperlen, mehrreihig gelegt, mit goldfarbenen Plättchen — in Türkis, Grün und schimmerndem Flieder. Verschluss aus Edelstahl.</p>
+      </article>
+      <article class="neu-card" data-rev style="--d:.24s">
+        <div class="im"><span class="neu-tag">Neu</span><img src="assets/neu/neu-ohrringe.webp" width="720" height="960" loading="lazy" decoding="async" alt="Tropfenförmige Ohrringe aus taupefarbenen Schliffperlen mit goldenem Bügel"></div>
+        <div class="row"><b>Tropfen-Ohrringe</b><span class="pr">14,99 €</span></div>
+        <p>Tropfenform, dicht mit taupefarbenen Schliffperlen besetzt, goldener Bügel — leicht zu tragen und ein hübscher Gegenpol zu schlichten Kleidern.</p>
+      </article>
+    </div>
+    <p class="neu-note" data-rev>Alle Preise inkl. MwSt. · Vorrätig in der Boutique, kein Versand — <a href="https://www.instagram.com/aries.mode/" target="_blank" rel="noopener">neue Ware zuerst auf Instagram</a></p>
   </div>
 </section>
 
